@@ -1,36 +1,16 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import LoginPage from "./pages/LoginPage";
-import GamesLibrary from "./pages/GamesLibrary";
-import GameDetailPage from "./pages/GameDetailPage";
-import DealsPage from "./pages/DealsPage";
-import CommunityPage from "./pages/CommunityPage";
-import NotFound from "./pages/NotFound";
-
-const queryClient = new QueryClient();
-
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/games" element={<GamesLibrary />} />
-          <Route path="/games/:slug" element={<GameDetailPage />} />
-          <Route path="/deals" element={<DealsPage />} />
-          <Route path="/community" element={<CommunityPage />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
-
-export default App;
+export default function App() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800">
+      <nav className="border-b border-slate-700">
+        <div className="max-w-7xl mx-auto px-4 py-4">
+          <h1 className="text-2xl font-bold text-white">Game Hub</h1>
+        </div>
+      </nav>
+      
+      <main className="max-w-7xl mx-auto px-4 py-8">
+        <h2 className="text-4xl font-bold text-white mb-8">Welcome to Game Hub</h2>
+        <p className="text-slate-300 mb-8">Explore our collection of games</p>
+      </main>
+    </div>
+  )
+}
